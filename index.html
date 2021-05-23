@@ -6,14 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link type="text/css" rel="stylesheet" href="styles.css">
-    <title>Shopfiy Survey</title>
+    <title>Shopify Survey</title>
 </head>
 
 <body>
     <div class="container">
-        <div class="shopify-container">
-            <img src="images/shopify.png" class="shopify-pic" >
-        </div>
         <div class="form">
             <form action="form.js" method="POST" name="survey form">
                 <div class="title">
@@ -21,53 +18,53 @@
                     <p>The link to the Shopify home page can be found <a  href="https://www.shopify.ca/" target="_blank">here.</a></p>
                 </div>
                 <hr/>
-                <div class="question">
+               <div class="shopify-container">
+                  <img src="images/shopify.png" class="shopify-pic" class="responsive" class="center" >
+               </div>
+                <div class="question"><br/>
                     <label for="opinion"> Name</label>
-                    <input type="text" id="name" name="name" class="text-box">
-                </div>
+                    <input type="text" id="name" name="name" class="textbox">
+                </div><br />
                 <div class="question">
                     <label for="opinion"> Email</label>
-                    <input type="text" id="email" name="email" class="text-box">
-                </div>
+                    <input type="text" id="email" name="email" class="textbox">
+                </div><br />
                 <div class="question" id="impression">
-                    <p class="section-title"> First Impression</p>
                     <label for="opinion"> What is your initial impression of the site?</label>
-                    <input type="text" id="opinion" name="opinion" class="text-box">
+                    <input type="text" id="opinion" name="opinion" class="textbox">
                 </div>
                 <div class="question" >
-                    <p class="section-title">Which of the following words describe this site from the image you see:</p>
+                    <p class="section-title">Which of the following colours stand out on the Shopify website? Please select all that apply.</p>
                     <div>
                        <div class="choice"> 
-                            <input type="checkbox" id="inviting" value="inviting" name="description">
-                            <label for="inviting">Inviting</label>
+                            <input type="checkbox" id="green" value="green" name="description">
+                            <label for="green">Green</label>
                         </div><br />
                         <div class="choice">
-                            <input type="checkbox" id="elegant" value="elegant" name="description">
-                            <label for="elegant">Elegant</label>
+                            <input type="checkbox" id="black" value="black" name="description">
+                            <label for="black">Black</label>
                         </div><br />
                         <div class="choice">
-                            <input type="checkbox" id="consistent" value="consistent" name="description">
-                            <label for="consistent">Consistent</label>
+                            <input type="checkbox" id="cream" value="cream" name="description">
+                            <label for="consistent">Cream</label>
                         </div>
                     </div>
                 </div>
                 <div class="question">
-                    <p class="section-title"> After visting the site, which of the following describes the usability of the site:</p>
+                    <p class="section-title"> Overall, do you find it easy to navigate on the Shopify website?</p>
                    <div>
                         <div class="choice">
-                            <input type="radio" id="best" value="best" name="usability">
-                            <label for="best">The site is intuitive and I know where I need everything.</label></div>
+                            <input type="radio" id="yes" value="yes" name="usability">
+                            <label for="best">Yes</label></div>
                         <br />
                         <div class="choice">
                             <input type="radio" id="medium" value="medium" name="usability">
-                            <label for="medium">The site is mostly intuitive but is missing some things.</label></div>
+                            <label for="medium">No</label></div>
                         <br />
-                        <div class="choice"><input type="radio" id="worst" value="worst" name="usability">
-                        <label for="worst">I have a hard time knowing where to locate certain features.</label></div>
                     </div>
                 </div>
                 <div class="question">
-                    <p class="section-title">From a scale of 1-5, what would you give the overall usability of the site?</p>
+                    <p class="section-title">From a scale of 1-5, what would you give the overall functinality of the site?</p>
                     <select>
                         <option value="1">1 star</option>
                         <option value="2">2 star</option>
@@ -81,13 +78,13 @@
                     <textarea rows="4">
                     </textarea>
                 </div>
-                    <button type="submit" id="btn-submit">Submit the Questionnaire</button>
+                    <button type="submit" id="btn-submit">Submit the Questionnaire</button><br/>
             </form>
-        </div>
-    </div>
+        </div><br/>
+    </div><br/>
 </body>
 <footer>
-    <p>Website designed by: Jazzy K</p>
+    <p1>Website designed by: Jazzy K</p1>
 </footer>
 
 </html>

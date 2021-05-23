@@ -1,0 +1,33 @@
+body {
+	background: linear-gradient(0deg, rgb(3, 90, 7) 0%, rgba(207,255,126,1) 100%);
+	font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+.title{
+    text-align: center;
+}
+.shopify-pic {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+	width: 80%; 
+}
+.question {
+    color: white;
+    text-align: center;
+}
+.button-submit {
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+}
+table input[type="submit"] {
+    display: block;
+    margin: 0 auto;
+}
+
+p1{
+    color:white;
+    bottom: 0;
+}

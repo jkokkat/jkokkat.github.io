@@ -5,6 +5,7 @@ body {
 
 .title{
     text-align: center;
+    font-size: large;
 }
 .shopify-pic {
     display: block;
@@ -49,11 +50,21 @@ p1{
     /* border-style: solid; */
   box-sizing: border-box;  
   width: 1204px;
-  height: 880px;  
+  height: 980px;  
   border: 3px solid rgb(0, 0, 0);
   margin-left:150.5px;
 }
 textarea {
     width:500px;
     border-radius:8px;
+}
+option{
+    size:1140px;
+    font-size:medium;
+}
+
+select{
+    height:40px;
+    border-radius: 4px;
+    width:80px;
 }

@@ -1,5 +1,5 @@
 body {
-	background: linear-gradient(0deg, rgb(3, 90, 7) 0%, rgba(207,255,126,1) 100%);
+	background: linear-gradient(0deg, rgb(23, 119, 27) 0%, rgba(207,255,126,1) 100%);
 	font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -19,6 +19,7 @@ body {
     margin-block-end: 1em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
+    margin-left:19.5em
     
 }
 .buttonSubmit {
@@ -29,12 +30,12 @@ body {
     font-size:large;
 }
 .btn{
-    background-color:#fbf7ed;
+    background-color:#ddd;
     border-radius: 8px;
     font-size:large;
 }
 .btn:hover {
-    background-color: #ddd;
+    background-color: #ebdebe;
     color: black;
   }
 p1{
@@ -45,8 +46,14 @@ p1{
     text-transform: uppercase;
 }
 .questions {
-    border-style: solid;
+    /* border-style: solid; */
+  box-sizing: border-box;  
+  width: 1204px;
+  height: 880px;  
+  border: 3px solid rgb(0, 0, 0);
+  margin-left:150.5px;
 }
 textarea {
     width:500px;
+    border-radius:8px;
 }

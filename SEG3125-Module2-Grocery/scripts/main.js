@@ -1,4 +1,3 @@
-
 // This function is called when any of the tab is clicked
 // It is adapted from https://www.w3schools.com/howto/howto_js_tabs.asp
 
@@ -27,15 +26,19 @@ function openInfo(evt, tabName) {
 // generate a checkbox list from a list of products
 // it makes each product name as the label for the checkbos
 
-function populateListProductChoices(slct1, slct2) {
+function populateListProductChoices(slct1, slct2, slct3, slct4, slct5) {
     var s1 = document.getElementById(slct1);
-    var s2 = document.getElementById(slct2);
+	var s2 = document.getElementById(slct2);
+	var s3 = document.getElementById(slct3);
+	var s4 = document.getElementById(slct4);
+	var s5 = document.getElementById(slct5);
 	
 	// s2 represents the <div> in the Products tab, which shows the product list, so we first set it empty
-    s2.innerHTML = "";
+	s2.innerHTML = "";
+
 		
 	// obtain a reduced list of products based on restrictions
-    var optionArray = restrictListProducts(products, s1.value);
+	var optionArray = restrictListProducts(s1.checked, products, s3.checked, s4.checked, s5.checked);
 
 	// for each item in the array, create a checkbox element, each containing information such as:
 	// <input type="checkbox" name="product" value="Bread">
@@ -43,22 +46,28 @@ function populateListProductChoices(slct1, slct2) {
 		
 	for (i = 0; i < optionArray.length; i++) {
 			
-		var productName = optionArray[i];
+		var productName = optionArray[i].name;
+		var productPrice = optionArray[i].price;
 		// create the checkbox and add in HTML DOM
 		var checkbox = document.createElement("input");
 		checkbox.type = "checkbox";
 		checkbox.name = "product";
-		checkbox.value = productName;
+        checkbox.value = productName;
 		s2.appendChild(checkbox);
 		
 		// create a label for the checkbox, and also add in HTML DOM
-		var label = document.createElement('label')
-		label.htmlFor = productName;
-		label.appendChild(document.createTextNode(productName));
-		s2.appendChild(label);
+        var label1 = document.createElement('label');
+        var label2 = document.createElement('label');
+        label1.htmlFor = productName;
+        label2.htmlFor = productPrice;
+        label1.appendChild(document.createTextNode(productName));
+		label2.appendChild(document.createTextNode(productPrice));
+        s2.appendChild(label1);
+        s2.appendChild(document.createTextNode(" Price: $"));
+        s2.appendChild(label2);
 		
 		// create a breakline node and add in HTML DOM
-		s2.appendChild(document.createElement("br"));    
+		s2.appendChild(document.createElement("br"));      
 	}
 }
 	
@@ -74,7 +83,7 @@ function selectedItems(){
 	var c = document.getElementById('displayCart');
 	c.innerHTML = "";
 	
-	// build list of selected item
+	// build list of selected items
 	var para = document.createElement("P");
 	para.innerHTML = "You selected : ";
 	para.appendChild(document.createElement("br"));
@@ -88,7 +97,7 @@ function selectedItems(){
 		
 	// add paragraph and total price
 	c.appendChild(para);
-	c.appendChild(document.createTextNode("Total Price is " + getTotalPrice(chosenProducts)));
+	c.appendChild(document.createTextNode("Total Price is $" + getTotalPrice(chosenProducts)));
 		
 }
 

@@ -34,4 +34,40 @@
   padding: 6px 12px;
   border: 1px solid #ccc;
   border-top: none;
+  font-size:25px;
+}
+h1 {
+  font-family: "Poppins","Helvetica", sans-serif;
+  color:green;
+  text-align: center;
+  font-size:40px;
+}
+p1{
+  position:fixed;
+  bottom: 0;
+  text-align: center;
+  font-size: small;
+  font-family: "Montserrat", sans-serif;
+}
+p{
+  font-size:25px;
+}
+
+label{
+font-size:large;
+}
+s2{
+  font-size:large;
+}
+label1{
+  font-size:large;
+}
+label2{
+  font-size:large;
+}
+.tablinks{
+  font-size:xx-large;
+}
+.cart{
+  font-size: large;
 }

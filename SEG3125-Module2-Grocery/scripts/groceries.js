@@ -164,5 +164,6 @@ function getTotalPrice(chosenProducts) {
 			totalPrice += products[i].price;
 		}
 	}
-	return totalPrice;
+	price =(Math.round((totalPrice * 1000)/10)/100).toFixed(2);
+	return price;
 }

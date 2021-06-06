@@ -1,29 +1,61 @@
 // This function is called when any of the tab is clicked
 // It is adapted from https://www.w3schools.com/howto/howto_js_tabs.asp
 
-function openInfo(evt, tabName) {
+var currentTab = 0; // Current tab is set to be the client information tab
+displayTab(currentTab); // Display the current tab
 
-	// Get all elements with class="tabcontent" and hide them
-	tabcontent = document.getElementsByClassName("tabcontent");
-	for (i = 0; i < tabcontent.length; i++) {
-		tabcontent[i].style.display = "none";
-	}
-
-	// Get all elements with class="tablinks" and remove the class "active"
-	tablinks = document.getElementsByClassName("tablinks");
-	for (i = 0; i < tablinks.length; i++) {
-		tablinks[i].className = tablinks[i].className.replace(" active", "");
-	}
-
-	// Show the current tab, and add an "active" class to the button that opened the tab
-	document.getElementById(tabName).style.display = "block";
-	evt.currentTarget.className += " active";
-
+function displayTab(number) {
+  // This function will display the specific tab the user would like
+  var specificTab = document.getElementsByClassName("tab");
+  specificTab[number].style.display = "block";
+ 
+  if (number == 0) {
+    document.getElementById("backButton").style.display = "none";
+  } else {
+    document.getElementById("backButton").style.display = "inline";
+  }
+  if (number == (specificTab.length - 1)) {
+	document.getElementById("nextButton").innerHTML = "Place Order";
+  } else {
+    document.getElementById("nextButton").innerHTML = "Next";
+  }
 }
 
-
+function decideTab(number) {
+	// This function will figure out which tab to display
+	var specifiedTab = document.getElementsByClassName("tab");
 	
-// generate a checkbox list from a list of products
+	if (number == 1 && !checkInputs()) return false;
+	
+	specifiedTab[currentTab].style.display = "none";
+	
+	currentTab = currentTab + number;
+	// if you have reached the order details tab, have alert and bring back to first page
+	if (currentTab >= specifiedTab.length) {
+	   alert("ORDER CONFIRMED: Your will be notified shortly with details on the delivery status of your groceries.");
+	  document.getElementById("userForm").submit();
+	  return false;
+	}
+	// Otherwise, display the correct tab:
+	displayTab(currentTab);
+  }
+
+  function checkInputs() {
+	// This function deals with checking what user entered in the form
+	var displayedTab, inputInfo, i, valid = true;
+	displayedTab = document.getElementsByClassName("tab");
+	inputInfo = displayedTab[currentTab].getElementsByTagName("input");
+	for (i = 0; i < inputInfo.length; i++) {
+	  // If a field is empty, add an "invalid" class to the field
+	  if (inputInfo[i].value == "") {
+		inputInfo[i].className += " invalid";
+		valid = false;
+	  }
+	}
+	return valid; // return the valid status
+  }
+
+  // generate a checkbox list from a list of products
 // it makes each product name as the label for the checkbos
 
 function populateListProductChoices(slct1, slct2, slct3, slct4, slct5) {

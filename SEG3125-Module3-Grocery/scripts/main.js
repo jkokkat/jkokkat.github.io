@@ -122,7 +122,7 @@ function populateListProductChoices(slct1, slct2, slct3, slct4) {
 
 		//Create the card with the photo
 		var itemContainer = document.createElement("div");
-		itemContainer.className += "itemCard";
+		itemContainer.className += "groceryBox";
 		var image = document.createElement("img");
 		image.src = photo;
 		itemContainer.appendChild(image);

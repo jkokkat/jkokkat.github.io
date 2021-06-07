@@ -4,75 +4,83 @@
 
 var products = [
 	{
-		name: "milk",
+		name: "Milk",
 		organic: true,
 		nut: true,
 		lactose: false,
 		price: 7.34
 	},
 	{
-		name: "pistachios",
+		name: "Pistachios",
 		organic: true,
 		nut: false,
 		lactose: true,
 		price: 8.35
 	},
 	{
-		name: "chicken nuggets",
+		name: "Chicken Nuggets",
 		organic: false,
 		nut: true,
 		lactose: true,
 		price: 9.99
 	},
 	{
-		name: "peanut butter",
+		name: "Peanut Butter",
 		organic: false,
 		nut: false,
 		lactose: true,
 		price: 5.27
 	},
 	{
-		name: "frozen cheese pizza",
+		name: "Frozen Cheese Pizza",
 		organic: false,
 		nut: true,
 		lactose: false,
 		price: 5.87
 	},
 	{
-		name: "trail mix",
+		name: "Trail Mix",
 		organic: true,
 		nut: false,
 		lactose: true,
 		price: 4.97
 	},
     {
-		name: "apple",
+		name: "Apple",
 		organic: true,
 		nut: true,
 		lactose: true,
 		price: 1.19
 	},
 	{
-		name: "tomatoes",
+		name: "Tomatoes",
 		organic: true,
 		nut: true,
 		lactose: true,
 		price: 3.47
 	},
 	{
-		name: "yogurt",
+		name: "Yogurt",
 		organic: false,
 		nut: true,
 		lactose: false,
 		price: 4.77
 	},
 	{
-		name: "cream cheese",
+		name: "Cream Cheese",
 		organic: false,
 		nut: true,
 		lactose: false,
 		price: 4.97
 	},
+	{
+        name: "Mr. Noodles",
+        lactose: true,
+        nut: true,
+        organic: false,
+        price: 1.99
+    },
+	
 ].sort((a,b) => a.price-b.price);
 	
 
@@ -80,80 +88,67 @@ var products = [
 // given restrictions provided, make a reduced list of products
 // prices should be included in this list, as well as a sort based on price
 
-function restrictListProducts(lactose, prods, nuts, organic, none) {
+function restrictListProducts(restrictionOne, prods, restrictionTwo, valid) {
 
     let product_names = [];
 
-    
+    var default_choice = false;
 
-	for (let i=0; i<prods.length; i+=1) {
-        // lactose and nut restrictions
-        if ((lactose == true) && (prods[i].lactose == true) && (nuts == true) && (prods[i].nut == true)) {
-            // organic restriction
-            if (organic == true) {
-                if (prods[i].organic == true) {
-                    product_names.push(prods[i]);
-                }
-            }
-            // no organic restriction
-            else {
-                product_names.push(prods[i]);
-            }
-        }
-        // lactose restriction only
-        else if ((lactose == true) && (prods[i].lactose == true) && (nuts==false)) {
-            // organic restriction
-            if (organic == true) {
-                if (prods[i].organic == true) {
-                    product_names.push(prods[i]);
-                }
-            }
-            // no organic restriction
-            else {
-                product_names.push(prods[i]);
-            }
-        }
-        // nut allergy only
-        else if ((nuts == true) && (prods[i].nut == true) && (lactose==false)) {
-            // organic restriction
-            if (organic == true) {
-                if (prods[i].organic == true) {
-                    product_names.push(prods[i]);
-                }
-            }
-            // no organic restriction
-            else {
-                product_names.push(prods[i]);
-            }
-        }
-        // checking if user prefers organic only
-        else if ((lactose == false) && (nuts == false)) {
-            if (organic == true) {
-                if (prods[i].organic == true) {
-                    product_names.push(prods[i]);
-                }
-            }
-            else {
-                product_names.push(prods[i]);
-            }
-        }
-        // if no restrictions
-        else if (none == true && lactose ==false && nuts ==false) {
-            // if it is organic that is preferred
-            if (organic == true) {
-                // and product is organic
-				if(prods[i].organic == true){
-					product_names.push(prods[i]);
-				}
-            }
-            // if it is not organic
-			else{
-				product_names.push(prods[i]);
-			}
-		}
+    if ((restrictionOne == false) && (restrictionTwo == false)) {
+        default_choice = true;
     }
-	return product_names;
-    
+
+	for (let i = 0; i < prods.length; i++) {
+        if (default_choice) {
+            if (valid) {
+                if (prods[i].organic) {
+                    product_names.push(prods[i]);
+                }
+            } else {
+                product_names.push(prods[i]);
+            }
+        } else if ((restrictionOne) && (prods[i].lactose) && (restrictionTwo) && (prods[i].nut)) {
+            if (valid) {
+                if (prods[i].organic) {
+                    product_names.push(prods[i]);
+                }
+            } else {
+                product_names.push(prods[i]);
+            }
+        } else if ((restrictionOne) && (prods[i].lactose) && (restrictionTwo == false) && (prods[i].nut == false) ||
+            (restrictionOne== true) && (prods[i].lactose) && (restrictionTwo == false) && (prods[i].nut)) {
+            if (valid) {
+                if (prods[i].organic) {
+                    product_names.push(prods[i]);
+                }
+            }
+            else {
+                product_names.push(prods[i]);
+            }
+        } else if ((restrictionTwo) && (prods[i].nut) && (restrictionOne == false) && (prods[i].lactose == false) ||
+            (restrictionTwo) && (prods[i].nut) && (restrictionOne == false) && (prods[i].lactose)) {
+            if (valid) {
+                if (prods[i].organic) {
+                    product_names.push(prods[i]);
+                }
+            }
+            else {
+                product_names.push(prods[i]);
+            }
+        } else if ((restrictionTwo == false) && (restrictionOne== false)) {
+            if (check) {
+                if (prods[i].organic) {
+                    product_names.push(prods[i]);
+                } else {
+                    product_names.push(prods[i]);
+                }
+            }
+            else {
+                product_names.push(prods[i]);
+            }
+        }
+    }
+    return product_names;
 }
 
 // Calculate the total price of items, with received parameter being a list of products

@@ -4,7 +4,7 @@
 .tab {
   overflow: hidden;
   border: 1px solid #ccc;
-  background-color: #27d44c;
+  background-color: #fcf4dc;
 }
 
 /* Style the tab content */
@@ -14,20 +14,20 @@
   border: 1px solid #ccc;
   border-top: none;
   font-size:25px;
-  background-color:#abe6b8;
+  background-color:#000000;
 }
 h1 {
   font-family: "Poppins","Helvetica", sans-serif;
-  color:green;
+  color:rgb(29, 156, 50);
+  text-shadow: 1px 0 0 #fcf4dc, 0 -1px 0 #fcf4dc, 0 1px 0 #fcf4dc, -1px 0 0 #fcf4dc;
   text-align: center;
-  font-size:40px;
+  font-size:60px;
 }
 p1{
-  position:fixed;
-  bottom: 0;
   text-align: center;
-  font-size: small;
+  font-size: 15px;
   font-family: "Montserrat", sans-serif;
+  font-weight:bold;
 }
 p{
   font-size:25px;
@@ -58,5 +58,44 @@ label2{
   font-size: large;
 }
 body{
-  background-image:url("images/background.jpg");
+  background-image: url('../images/background.jpg');
 }
+input[type=checkbox] {
+  transform: scale(2);
+  padding: 50px;
+  margin-right: 20px;
+  margin-bottom: 15px;
+  font-size:60px;
+}
+button {
+  background-color: #4db53e;
+  float: center;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0px 20px;
+  border: none;
+  font-family: "Open Sans";
+  color: white;
+  height: 40px;
+  width: auto;
+  margin: 0px;
+  text-align: center;
+}
+.radioText {
+  font-size: 25px;
+}
+footer {
+  text-align: center;
+  padding: 15px;
+  font-family:"Open Sans";
+  font-size: 15px;
+  bottom: 0;
+}
+/* img {
+  display: block;
+  max-width:300px;
+  max-height:124px;
+  width: auto;
+  height: auto;
+} */

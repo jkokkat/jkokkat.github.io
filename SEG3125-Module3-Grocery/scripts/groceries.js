@@ -8,77 +8,88 @@ var products = [
 		organic: true,
 		nut: true,
 		lactose: false,
-		price: 7.34
+		price: 7.34,
+		pic: "./images/milk.png"
 	},
 	{
 		name: "Pistachios",
 		organic: true,
 		nut: false,
 		lactose: true,
-		price: 8.35
+		price: 8.35,
+		pic: "./images/pistachios.png"
 	},
 	{
 		name: "Chicken Nuggets",
 		organic: false,
 		nut: true,
 		lactose: true,
-		price: 9.99
+		price: 9.99,
+		pic: "./images/chickennuggets.png"
 	},
 	{
 		name: "Peanut Butter",
 		organic: false,
 		nut: false,
 		lactose: true,
-		price: 5.27
+		price: 5.27,
+		pic: "./images/peanutbutter.png"
 	},
 	{
 		name: "Frozen Cheese Pizza",
 		organic: false,
 		nut: true,
 		lactose: false,
-		price: 5.87
+		price: 5.87,
+        pic: "./images/cheesepizza.png"
 	},
 	{
 		name: "Trail Mix",
 		organic: true,
 		nut: false,
 		lactose: true,
-		price: 4.97
+		price: 4.97,
+		pic: "./images/trailmix.png"
 	},
     {
 		name: "Apple",
 		organic: true,
 		nut: true,
 		lactose: true,
-		price: 1.19
+		price: 1.19,
+		pic: "./images/apple.jpg"
 	},
 	{
 		name: "Tomatoes",
 		organic: true,
 		nut: true,
 		lactose: true,
-		price: 3.47
+		price: 3.47,
+		pic: "./images/tomato.png"
 	},
 	{
 		name: "Yogurt",
 		organic: false,
 		nut: true,
 		lactose: false,
-		price: 4.77
+		price: 4.77,
+		pic: "./images/yogurt.png"
 	},
 	{
 		name: "Cream Cheese",
 		organic: false,
 		nut: true,
 		lactose: false,
-		price: 4.97
+		price: 4.97,
+		pic: "./images/creamcheese.png"
 	},
 	{
         name: "Mr. Noodles",
         lactose: true,
         nut: true,
         organic: false,
-        price: 1.99
+        price: 1.99,
+		pic: "./images/mrnoodles.png"
     },
 	
 ].sort((a,b) => a.price-b.price);

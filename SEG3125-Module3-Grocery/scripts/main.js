@@ -117,7 +117,17 @@ function populateListProductChoices(slct1, slct2, slct3, slct4) {
 			
 		var productName = optionArray[i].name;
 		var productPrice = optionArray[i].price;
-		var price ="Price: $";
+		var price ="       Price: $";
+        var photo = optionArray[i].pic;
+
+		//Create the card with the photo
+		var itemContainer = document.createElement("div");
+		itemContainer.className += "itemCard";
+		var image = document.createElement("img");
+		image.src = photo;
+		itemContainer.appendChild(image);
+        s2.append(itemContainer);
+
 		// create the checkbox and add in HTML DOM
 		var checkbox = document.createElement("input");
 		checkbox.type = "checkbox";

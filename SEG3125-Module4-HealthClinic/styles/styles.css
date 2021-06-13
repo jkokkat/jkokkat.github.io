@@ -1,5 +1,6 @@
  h1{
     color:#323185;
+    white-space: normal;
  } 
  h2{
     color:#323185;
@@ -13,7 +14,7 @@ td{
     font-size: 25px;
 }
 p{
-    font-size: 20px;
+    font-size: 1em;
     
 }
 h5{
@@ -46,7 +47,7 @@ h5{
 
 
 .form-container {
-    position:absolute;
+     position:absolute;
     right: 0;
     margin: 20px;
     max-width: 300px;
@@ -54,7 +55,7 @@ h5{
     background-color: white;
     margin-right: 50px;
     display: inline-block;
-     max-height:530px;
+     max-height:33em;
     /* size:70px; */
 }
 .form-group {
@@ -72,7 +73,7 @@ h5{
     padding-bottom:50%;
     margin-top: 5%;
     position:relative;
-    height:60vh;
+    height:25em;
     display: flex;
     flex-basis: 100%;
     width: 100%;
@@ -116,4 +117,10 @@ justify-content: center;
 div.content{
     padding: 5px 25px 15px 25px;
     font-size: 2.5vw;
+}
+/* Use a media query to add a break point at 800px: */
+@media screen and (max-width: 800px) {
+  .left, .main, .right {
+    width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
+  }
 }

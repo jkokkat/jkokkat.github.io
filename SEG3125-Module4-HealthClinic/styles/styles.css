@@ -7,6 +7,9 @@
     color:#323185;
     margin-top: 5%;
  } 
+ h6{
+     color:#1f1e52
+ }
  h3{
     overflow-wrap: normal;
  }
@@ -127,4 +130,10 @@ div.content{
   .left, .main, .right {
     width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
   }
+}
+.nav-item {
+    margin-right: 2em !important;
+}
+.navbar-collapse {
+    justify-content: flex-end;
 }

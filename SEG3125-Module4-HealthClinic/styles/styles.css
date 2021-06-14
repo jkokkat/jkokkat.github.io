@@ -24,9 +24,16 @@ p{
     font-size: 1em;
     
 }
+p1{
+    font-size:1.1em;
+}
 h5{
     color:#d18f00;
    
+}
+h7{
+    color:#d18f00;
+    font-size: 1.45em;
 }
 .btn{
     margin-top: 10px;

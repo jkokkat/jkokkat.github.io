@@ -13,6 +13,9 @@
  h3{
     overflow-wrap: normal;
  }
+ li a{
+    color: black;
+  }
 .accordion-button {
      font-size:22px;
  }

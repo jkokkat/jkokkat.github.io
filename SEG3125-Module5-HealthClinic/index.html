@@ -35,13 +35,13 @@ This will help you get started with your code!
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="#first">First</a>
+                <a class="nav-link" href="#servicesArea">Services</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#second">Second</a>
+                <a class="nav-link" href="#teamArea">Our Team</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#third">Third</a>
+                <a class="nav-link" href="#contactArea">Contact</a>
             </li>
         </ul>
     </div>
@@ -104,7 +104,8 @@ Many websites will use what is called CSS grid layouts, where you will have a he
             <input type="email" class="form-control" id="emailInput" placeholder="Enter Email">
         </div>
         <div class="form-group">
-            <select class="form-control" id="service">
+             <!-- <input type="text" class="form-control" required> -->
+            <select class="form-control" id="service" required>
                 <option disabled selected>Select Service</option>
                 <option>Nutritional Counselling</option>
                 <option>Grooming Services</option>
@@ -133,7 +134,7 @@ Many websites will use what is called CSS grid layouts, where you will have a he
 
 
    
-  <div class="vet-services">
+  <div class="vet-services" id="servicesArea">
     <h2 style="margin-top: 10vh;">Our Services</h2>
     <br>
     <div class="accordion accordion-flush" id="accordionFlushExample">
@@ -211,8 +212,8 @@ Many websites will use what is called CSS grid layouts, where you will have a he
     https://getbootstrap.com/docs/5.0/components/card/
     -->
     <br>
-    <h2>Meet the Physicians!</h2>
-    <div class="row justify-content-around">
+    <h2 id="teamArea">Meet the Physicians!</h2>
+    <div class="row justify-content-around" >
         <div class="card" style="width: 18rem;">
             <img src="images/doctor3.jpg" class="card-img-top" alt="...">
             <div class="card-body">
@@ -260,7 +261,7 @@ Many websites will use what is called CSS grid layouts, where you will have a he
             Here we have some hidden data to avoid cluttering the page with information
         </div>
     </div> -->
-    <div class=" p-3 my-3 border bg-light" style="display: flex">
+    <div class=" p-3 my-3 border bg-light" style="display: flex" id="contactArea">
         <div class="map-container">
             <div id="map-container-google-1" class="z-depth-1-half map-container" style="height: 500px; width: 500px">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2800.499119723068!2d-75.6809612846513!3d45.41943907910039!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cce05531e5f4f1d%3A0x17ab96403142de79!2s800%20King%20Edward%20Ave%2C%20Ottawa%2C%20ON%20K1N%206N5!5e0!3m2!1sen!2sca!4v1623593037520!5m2!1sen!2sca" width="600" height="450" style="border:0; "allowfullscreen="true" loading="lazy"></iframe>

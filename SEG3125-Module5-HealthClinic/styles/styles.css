@@ -1,0 +1,146 @@
+ h1{
+    color:#323185;
+    white-space: normal;
+    overflow-wrap: normal;
+ } 
+ h2{
+    color:#323185;
+    margin-top: 5%;
+ } 
+ h6{
+     color:#1f1e52
+ }
+ h3{
+    overflow-wrap: normal;
+ }
+.accordion-button {
+     font-size:22px;
+ }
+ 
+td{
+    font-size: 25px;
+}
+p{
+    font-size: 1em;
+    
+}
+p1{
+    font-size:1.1em;
+}
+h5{
+    color:#d18f00;
+   
+}
+h7{
+    color:#d18f00;
+    font-size: 1.45em;
+}
+.btn{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #b4cdee;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+}
+
+.bg-img {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/vet.jpg");
+
+    
+    min-height: 570px;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+
+.form-container {
+    position:absolute;
+    right: 0;
+    margin: 20px;
+    max-width: 300px;
+    padding: 16px;
+    background-color: white;
+    margin-right: 50px;
+    display: inline-block;
+    max-height:33em;
+    /* size:70px; */
+}
+.form-group {
+    margin-bottom: 10px;
+}
+.welcome-txt {
+    margin-left: 50px;
+    margin-top: 15%;
+    display: inline-block;
+    text-align: left;
+    position: relative;
+    
+}
+.map-container{
+    padding-bottom:50%;
+    margin-top: 5%;
+    position:relative;
+    height:25em;
+    display: flex;
+    flex-basis: 100%;
+    width: 100%;
+}
+.map-container iframe{
+left:0;
+top:0;
+height:70%;
+width:100%;
+position:absolute;
+align-items: center;
+justify-content: center;
+}
+.map-txt {
+    margin-left: 50px;
+    margin-top: 10%;
+    display: inline-block;
+    text-align: left;
+    position: relative;
+}
+.crop {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+.alert-custom {
+    background-color: #ebb84b;
+}
+.alert alert-danger alert-dismissible fade show {
+ fill:rgb(158, 238, 238);
+}
+.card-img-top{
+    border-color:#323185;
+    border-width: 5px;
+}
+.card{
+    border-color:#b4cdee;
+    border-width: 5px;
+    margin-top:5%;
+}
+div.content{
+    padding: 5px 25px 15px 25px;
+    font-size: 2.5vw;
+}
+/* Use a media query to add a break point at 800px: */
+@media screen and (max-width: 800px) {
+  .left, .main, .right {
+    width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
+  }
+}
+.nav-item {
+    margin-right: 2em !important;
+}
+.navbar-collapse {
+    justify-content: flex-end;
+}

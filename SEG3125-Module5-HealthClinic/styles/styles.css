@@ -48,7 +48,10 @@ h7{
     width: 100%;
     opacity: 0.9;
 }
-
+.btn:hover{
+   background-color: #71a3e4 ;
+   
+} 
 .bg-img {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/vet.jpg");
 

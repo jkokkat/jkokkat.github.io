@@ -2,6 +2,7 @@
     color:#323185;
     white-space: normal;
     overflow-wrap: normal;
+    align-self: center;
  } 
  h2{
     color:#323185;
@@ -76,6 +77,8 @@ h7{
     margin-right: 50px;
     display: inline-block;
     max-height:43em;
+    border-color:#b4cdee;
+    border-width: 3px;
     /* size:70px; */
 }
 .form-group {
@@ -89,8 +92,11 @@ h7{
     position: relative;
     
 }
-.contactArea{
+/* .contactArea{
     height:auto;
+} */
+.headingContact{
+    /* position:relative; */
 }
 .map-container{
     padding-bottom:50%;
@@ -109,6 +115,13 @@ width:100%;
 position:absolute;
 align-items: center;
 justify-content: center;
+}
+.nav-link{
+    color:#323185;
+    font-size:25px;
+}
+.nav-link:hover{
+    background-color: #ebcc89;
 }
 .map-txt {
     margin-left: 50px;
@@ -153,3 +166,13 @@ div.content{
 .navbar-collapse {
     justify-content: flex-end;
 }
+h8{
+    align-content: center;
+    font-weight: bold;
+}
+.address{
+    align-items: center;
+    justify-content: center;
+    text-align:left;
+}
+

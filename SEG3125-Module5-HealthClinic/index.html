@@ -11,8 +11,17 @@ This will help you get started with your code!
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link href="styles/styles.css" rel="stylesheet" type="text/css">
+    
+
+     <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+    integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    
+    <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/themes/south-street/jquery-ui.css" rel="stylesheet" type="text/css">
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="jquery-ui.min.css">
 
     <title>Module 5 Lab</title>
      
@@ -84,10 +93,12 @@ Many websites will use what is called CSS grid layouts, where you will have a he
     <form action="" class="form-container" style="float: right;">
         <h3 style="color:#323185">Book an Appointment</h3>
         <div class="form-group">
-          <input type="name" class="form-control" id="name" placeholder="Enter Full Name">
+          <input type="name" class="form-control" id="name" oninvalid="this.setCustomValidity('Name cannot be empty.')" 
+          onchange="this.setCustomValidity('')"placeholder="Enter Full Name" required>
         </div>
         <div class="form-group">
-          <select class="form-control" id="gender">
+          <select class="form-control" id="gender" oninvalid="this.setCustomValidity('Gender must be selected.')" 
+          onchange="this.setCustomValidity('')"required>
             <option disabled selected>Select Gender</option>
             <option>Male</option>
             <option>Female</option>
@@ -98,10 +109,11 @@ Many websites will use what is called CSS grid layouts, where you will have a he
         <div class="form-group">
             <!-- <input type="phone" class="form-control" id="phone" placeholder="Enter Phone Number"> -->
             <!-- <input type="tel" class="form-control" id="phone" name="phone"placeholder="Enter Phone Number" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required> -->
-            <p>Phone Number <input type="text" class="form-control" id="phone" placeholder="(xxx)xxx-xxxx"></p>
+            <p>Phone Number <input type="text" class="form-control" id="phone" placeholder="(xxx)xxx-xxxx" oninvalid="this.setCustomValidity('Phone number cannot be empty.')" 
+                onchange="this.setCustomValidity('')"required></p>
         </div>
         <div class="form-group">
-            <input type="email" class="form-control" id="emailInput" placeholder="Enter Email">
+            <p>Email<input type="email" class="form-control" id="emailInput" placeholder="sample@email.com" required></p>
         </div>
         <div class="form-group">
              <!-- <input type="text" class="form-control" required> -->
@@ -115,7 +127,7 @@ Many websites will use what is called CSS grid layouts, where you will have a he
               </select>
         </div>
         <div class="form-group">
-            <select class="form-control" id="doctor">
+            <select class="form-control" id="doctor"  required onchange="setDoctor(event)"required>
                 <option disabled selected>Select Doctor</option>
                 <option>Dr. John Mazarra</option>
                 <option>Dr. Jenna Keegan</option>
@@ -124,10 +136,13 @@ Many websites will use what is called CSS grid layouts, where you will have a he
         </div>
         <div class="form-group">
             <label for="appointment" style="color:#404040">Preferred Date of Appointment:</label>
-            <input class="form-control" type="datetime-local" id="appointmentDate">
+            <input class="form-control" type="datetime-local" id="appointmentDate" placeholder="mm/dd/yyyy" required disabled>
         </div>
         <div class="form-group">
-            <button type="submit" onclick="checkSelected()" class="btn">BOOK APPOINTMENT </button>
+            <p>Credit Card Number</p><input type="credit" class="form-control" id="credit" placeholder="XXXX XXXX XXXX XXXX" required></p>
+        </div>
+        <div class="form-group">
+            <button type="submit" onclick="validateContact(event)" class="btn">BOOK APPOINTMENT </button>
         </div>
       </form>
 </div>
@@ -135,7 +150,7 @@ Many websites will use what is called CSS grid layouts, where you will have a he
 
    
   <div class="vet-services" id="servicesArea">
-    <h2 style="margin-top: 10vh;">Our Services</h2>
+    <h2 style="margin-top: 10vh;"><i class="fas fa-file-medical" style="margin-right: 20px"></i>Our Services</h2>
     <br>
     <div class="accordion accordion-flush" id="accordionFlushExample">
         <div class="accordion-item">
@@ -212,7 +227,7 @@ Many websites will use what is called CSS grid layouts, where you will have a he
     https://getbootstrap.com/docs/5.0/components/card/
     -->
     <br>
-    <h2 id="teamArea">Meet the Physicians!</h2>
+    <h2 id="teamArea"><i class="fas fa-user-md" style="margin-right: 10px; margin-right: 20px"></i>Meet the Team!</h2>
     <div class="row justify-content-around" >
         <div class="card" style="width: 18rem;">
             <img src="images/doctor3.jpg" class="card-img-top" alt="...">
@@ -261,13 +276,16 @@ Many websites will use what is called CSS grid layouts, where you will have a he
             Here we have some hidden data to avoid cluttering the page with information
         </div>
     </div> -->
-    <div class=" p-3 my-3 border bg-light" style="display: flex" id="contactArea">
+    <br>
+    <div class=" p-1 my-1 border bg-light" style="display: flex" id="contactArea">
+        <h2 id="ContactArea">Contact Us</h2> <br>
+        <br>
         <div class="map-container">
             <div id="map-container-google-1" class="z-depth-1-half map-container" style="height: 500px; width: 500px">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2800.499119723068!2d-75.6809612846513!3d45.41943907910039!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cce05531e5f4f1d%3A0x17ab96403142de79!2s800%20King%20Edward%20Ave%2C%20Ottawa%2C%20ON%20K1N%206N5!5e0!3m2!1sen!2sca!4v1623593037520!5m2!1sen!2sca" width="600" height="450" style="border:0; "allowfullscreen="true" loading="lazy"></iframe>
             </div>
             <span class="map-txt">
-                <h1 style="color: #323185">Come visit us!</h1>
+                <!-- <h1 style="color: #323185">Come visit us!</h1> -->
                 <h5>Location</h5>
                 <p>800 King Edward Ave, Ottawa, ON K1N 6N5</p>
                 <h5>Clinic Hours</h5>

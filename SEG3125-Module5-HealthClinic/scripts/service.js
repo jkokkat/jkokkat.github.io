@@ -11,7 +11,15 @@
         'Dr. Jesse Peters':[3,5],
     }
     
-    
+    var selectedDoctor = '';
+
+
+    function setDoctor(event){
+        console.log(event)
+        console.log(event.target.value)
+        selectedDocter = event.target.value;
+        $("#dateInput").removeAttr("disabled");
+    }
 // Function to verify that the phone number is correct.
 // Here, I validate for (12345), but you have to change that for a phone validation
 // Tutorials on Regular expressions
@@ -39,15 +47,24 @@ function validatePhone(txtPhone) {
 // Document of datepicker is here: https://api.jqueryui.com/datepicker/
 // The following code shows how to set specific dates to exclude, as well as Sundays (Day 0)
 // Make sure in your version that you associate Days to remove with Experts (e.g. John doesn't work Mondays)
-var unavailableDates = ["06/29/2020","07/07/2020","07/10/2020"];
+var unavailableDates = ["06/29/2021","07/07/2021","07/10/2021"];
 const setDateFormat = "mm/dd/yy";
 
 function disableDates(date) {
     // Sunday is Day 0, disable all Sundays
-    if (date.getDay() === 0)
+    if (date.getDay() == 0 || date.getDay() == 6)
         return [false];
+
+    if(selectedBarber!=''){
+        for(let i=0; i< availability[selectedBarber].length; i++){
+            if(date.getDay() == availability[selectedBarber][i]){
+                return [false]
+            }
+        }
+    } 
+
     var string = jQuery.datepicker.formatDate(setDateFormat, date);
-    return [ unavailableDates.indexOf(string) === -1 ]
+    return [ unavailableDates.indexOf(string) == -1 ]
 }
 
 function checkSelected () {
@@ -74,6 +91,17 @@ $(document).ready(function(){
         }
     });
 
+
+
+    $("#credit").on("change", function(){
+        if (!validateCredit("credit")){
+            alert("Wrong format for credit");
+            $("#credit").addClass("is-invalid");
+        }
+        else {
+            $("#credit").removeClass("is-invalid");
+        }
+    });
     // To change the style of the calender, look in jqueryui.com, under Themes, in the ThemeRoller Gallery
     // You can try different themes (the names are under the calendars) / This is Excite Bike
     // To use a different theme you must include its css in your HTML file.
@@ -81,7 +109,7 @@ $(document).ready(function(){
 
     // Also, here is a good tutorial for playing with the datepicker in https://webkul.com/blog/jquery-datepicker/
     // Datepicker is also documented as one of the widgets here: https://api.jqueryui.com/category/widgets/
-    $/* ( "#dateInput" ).datepicker(
+    $ ( "#dateInput" ).datepicker(
         {
             dateFormat: setDateFormat,
             // no calendar before June 1rst 2020
@@ -91,28 +119,28 @@ $(document).ready(function(){
             beforeShowDay: $.datepicker.noWeekends,
             beforeShowDay: disableDates
         }
-    );
+    ); 
 
 
     // Look at the different events on which an action can be performed
     // https://www.w3schools.com/jquery/jquery_events.asp
     // Here, we put
-    $("#debit").on("mouseenter", function(){
-        $("#debit").addClass("showInput");
+    $("#credit").on("mouseenter", function(){
+        $("#credit").addClass("showInput");
     });
 
-    $("#debit").on("mouseleave", function(){
-        $("#debit").removeClass("showInput");
+    $("#credit").on("mouseleave", function(){
+        $("#credit").removeClass("showInput");
     });
 
     // https://jqueryui.com/tooltip/
     // The class "highlight" used here is predefined in JQuery UI
     // the message of the tooltip is encoded in the input (in the HTML file)
-    $("#debit").tooltip({
+    $("#credit").tooltip({
         classes: {
             "ui-tooltip": "highlight"
         }
-    }); */
+    }); 
 
 
 });

@@ -53,7 +53,7 @@ h7{
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/vet.jpg");
 
     
-    min-height: 570px;
+    min-height: 720px;
 
     /* Center and scale the image nicely */
     background-position: center;
@@ -72,7 +72,7 @@ h7{
     background-color: white;
     margin-right: 50px;
     display: inline-block;
-    max-height:33em;
+    max-height:43em;
     /* size:70px; */
 }
 .form-group {
@@ -86,11 +86,14 @@ h7{
     position: relative;
     
 }
+.contactArea{
+    height:auto;
+}
 .map-container{
     padding-bottom:50%;
     margin-top: 5%;
     position:relative;
-    height:25em;
+    height:15em;
     display: flex;
     flex-basis: 100%;
     width: 100%;
@@ -98,7 +101,7 @@ h7{
 .map-container iframe{
 left:0;
 top:0;
-height:70%;
+height:80%;
 width:100%;
 position:absolute;
 align-items: center;

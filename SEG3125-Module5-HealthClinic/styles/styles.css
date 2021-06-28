@@ -57,7 +57,7 @@ h7{
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/vet.jpg");
 
     
-    min-height: 720px;
+    min-height: 790px;
 
     /* Center and scale the image nicely */
     background-position: center;
@@ -76,7 +76,7 @@ h7{
     background-color: white;
     margin-right: 50px;
     display: inline-block;
-    max-height:43em;
+    max-height:47em;
     border-color:#b4cdee;
     border-width: 3px;
     /* size:70px; */
@@ -95,9 +95,7 @@ h7{
 /* .contactArea{
     height:auto;
 } */
-.headingContact{
-    /* position:relative; */
-}
+
 .map-container{
     padding-bottom:50%;
     margin-top: 5%;
@@ -173,6 +171,9 @@ h8{
 .address{
     align-items: center;
     justify-content: center;
-    text-align:left;
+    text-align:inherit;
+    object-position: 2em;
 }
-
+.form_control{
+    color:#323185;
+}

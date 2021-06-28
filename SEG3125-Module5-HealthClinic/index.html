@@ -102,7 +102,7 @@ Many websites will use what is called CSS grid layouts, where you will have a he
           <input type="name" class="form-control" id="name" oninvalid="this.setCustomValidity('Name cannot be empty.')" 
           onchange="this.setCustomValidity('')"placeholder="Enter Full Name" required>
         </div>
-        <div class="form-group">
+        <!-- <div class="form-group">
           <select required class="form-control" id="gender" oninvalid="this.setCustomValidity('Gender must be selected.')" 
           onchange="this.setCustomValidity('')"required>
             <option disabled selected>Select Gender</option>
@@ -111,7 +111,7 @@ Many websites will use what is called CSS grid layouts, where you will have a he
             <option>Other</option>
             <option>Prefer not to say</option>
           </select>
-        </div>
+        </div> -->
         <div class="form-group">
             <!-- <input type="phone" class="form-control" id="phone" placeholder="Enter Phone Number"> -->
             <!-- <input type="tel" class="form-control" id="phone" name="phone"placeholder="Enter Phone Number" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required> -->
@@ -123,7 +123,7 @@ Many websites will use what is called CSS grid layouts, where you will have a he
         </div>
         <div class="form-group">
              <!-- <input type="text" class="form-control" required> -->
-            <select class="form-control" id="service" required>
+            <select class="custom-select" id="service" required>
                 <option disabled selected>Select Service</option>
                 <option>Nutritional Counselling</option>
                 <option>Grooming Services</option>
@@ -133,22 +133,33 @@ Many websites will use what is called CSS grid layouts, where you will have a he
               </select>
         </div>
         <div class="form-group">
-            <select class="form-control" id="doctor"  required onchange="setDoctor(event)"required>
+            <select class="custom-select" id="doctorSelect"  required onchange="setDoctor()"required>
                 <option disabled selected>Select Doctor</option>
                 <option>Dr. John Mazarra</option>
                 <option>Dr. Jenna Keegan</option>
                 <option>Dr. Jesse Peters</option>
               </select>
         </div>
-        <div class="form-group">
+       <!--  <div class="form-group">
             <label for="appointment" style="color:#404040">Preferred Date of Appointment:</label>
-            <input class="form-control" type="datetime-local" id="appointmentDate" placeholder="mm/dd/yyyy" required disabled>
+            <input class="form-control" type="datetime-local" id="appointmentDate" placeholder="mm/dd/yyyy" required>
+        </div> -->
+        <div class="form-row">
+            <div class="form-group col-md-10">
+            <label for="date" style="color:#404040">Preferred Date of Appointment:</label>
+            <input class="form-control" type="text" id="dateInput" placeholder="mm/dd/yyyy" required>
+            <p><strong>PLEASE NOTE:</strong> We are closed June 29, July 7, and July 10 due to building maintenance.</p>
+            </div>
+            <div class="form-group col-md-10">
+            <label for="inputAddress2">Time</label>
+            <input type="time" class="form-control" id="inputAddress2" required>
+            </div>
         </div>
         <div class="form-group">
-            <p>Credit Card Number</p><input type="credit" class="form-control" id="credit" placeholder="XXXX XXXX XXXX XXXX" required></p>
+            <p><i class="fas fa-credit-card"></i> Credit Card Number</p><input type="credit" class="form-control" id="credit" title="This is only required in case of last minute cancellation." placeholder="XXXX XXXX XXXX XXXX" required></p>
         </div>
         <div class="form-group">
-            <button type="submit" id="submitBtn" onclick="validateContact(event)" class="btn">BOOK APPOINTMENT </button>
+            <button type="submit" id="submitBtn" onclick="validate()" class="btn">BOOK APPOINTMENT </button>
         </div>
       </form>
 </div>
@@ -279,7 +290,7 @@ Many websites will use what is called CSS grid layouts, where you will have a he
             </div>
             <span class="map-txt">
                 <!-- <h1 style="color: #323185">Come visit us!</h1> -->
-                <h5>Location</h5>
+                <h5><i class="fa-solid fa-location" style="margin-right: 20px"></i>Location</h5>
                 <p>800 King Edward Ave, Ottawa, ON K1N 6N5</p>
                 <h5>Clinic Hours</h5>
                 <p>Monday-Friday 09:00 - 18:00 <br> Saturday 09:00 - 16:00 <br> Sunday Closed </p>

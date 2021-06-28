@@ -41,13 +41,23 @@ function validatePhone(txtPhone) {
         return false;
     }
 }
-
+function validateCredit(txtCredit) {
+    let a = document.getElementById(txtCredit).value;
+    console.log(a,'credit here')
+    let filter = /\d{4}\s\d{4}\s\d{4}\s\d{4}/;
+    if (filter.test(a)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
 
 // Using date restrictions on datepicker
 // Document of datepicker is here: https://api.jqueryui.com/datepicker/
 // The following code shows how to set specific dates to exclude, as well as Sundays (Day 0)
 // Make sure in your version that you associate Days to remove with Experts (e.g. John doesn't work Mondays)
-var unavailableDates = ["06/29/2021","07/07/2021","07/10/2021"];
+var unavailableDates = ["06/28/2021","07/06/2021","07/09/2021"];
 const setDateFormat = "mm/dd/yy";
 
 function disableDates(date) {
@@ -55,9 +65,9 @@ function disableDates(date) {
     if (date.getDay() == 0 || date.getDay() == 6)
         return [false];
 
-    if(selectedBarber!=''){
-        for(let i=0; i< availability[selectedBarber].length; i++){
-            if(date.getDay() == availability[selectedBarber][i]){
+    if(selectedDoctor!=''){
+        for(let i=0; i< availability[selectedDoctor].length; i++){
+            if(date.getDay() == availability[selectedDoctor][i]){
                 return [false]
             }
         }
@@ -72,6 +82,7 @@ function checkSelected () {
     if(!serviceElement.value) {  
         alert("You must select a service.");  
     }
+
 }
 // HERE, JQuery "LISTENING" starts
 $(document).ready(function(){
@@ -112,8 +123,8 @@ $(document).ready(function(){
     $ ( "#dateInput" ).datepicker(
         {
             dateFormat: setDateFormat,
-            // no calendar before June 1rst 2020
-            minDate: new Date('06/01/2020'),
+            // no calendar before June 1st, 2021
+            minDate: new Date('06/01/2021'),
             maxDate: '+4M',
             // used to disable some dates
             beforeShowDay: $.datepicker.noWeekends,

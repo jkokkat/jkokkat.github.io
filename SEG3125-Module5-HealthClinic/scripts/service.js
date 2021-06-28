@@ -8,17 +8,32 @@
     var availability={
         'Dr. John Mazarra':[1,3,5],
         'Dr. Jenna Keegan':[2,3],
-        'Dr. Jesse Peters':[3,5],
+        'Dr. Jesse Peters':[3,4,5],
     }
     
     var selectedDoctor = '';
 
 
-    function setDoctor(event){
-        console.log(event)
-        console.log(event.target.value)
-        selectedDocter = event.target.value;
+    function setDoctor(){
         $("#dateInput").removeAttr("disabled");
+    }
+    function validate() {
+        let credit_card_num = $("#credit").val();
+        let phone_number = $("#phone").val();
+        let app_dt = $("#dateInput").val();
+        let app_time = $("#inputTime").val();
+    
+    
+       
+        let datetimecheck = dateTimeEmpty(app_dt, app_time);
+        
+        if(validatePhone(phone_number) && validateCredit(credit_card_num) && datetimecheck && checkSelected()){
+            alert("Successfully booked");
+            /* let message = `Your appointment has been received for ${app_dt} at ${app_time}.\n
+            You have registered for: ${services_selected.toString()} with ${specialist}.\n
+            Thank you for choosing Companion Care Clinic.` */
+            $.alert(message,"Success!");
+            }
     }
 // Function to verify that the phone number is correct.
 // Here, I validate for (12345), but you have to change that for a phone validation
@@ -52,6 +67,9 @@ function validateCredit(txtCredit) {
         return false;
     }
 }
+$("#submitBtn").click(function(){
+    validate();
+})
 
 // Using date restrictions on datepicker
 // Document of datepicker is here: https://api.jqueryui.com/datepicker/
@@ -64,26 +82,52 @@ function disableDates(date) {
     // Sunday is Day 0, disable all Sundays
     if (date.getDay() == 0 || date.getDay() == 6)
         return [false];
-
-    if(selectedDoctor!=''){
-        for(let i=0; i< availability[selectedDoctor].length; i++){
-            if(date.getDay() == availability[selectedDoctor][i]){
-                return [false]
-            }
-        }
+    var doctor = document.getElementById("doctorSelect");
+    if (doctor.value === "Dr. John Mazarra") {
+        if (date.getDay() === 2 || date.getDay() === 4)
+            return [false];
+    } else if (doctor.value === "Dr. Jenna Keegan") {
+        if (date.getDay() === 1 || date.getDay() === 4 || date.getDay() === 5) 
+            return [false];
+    } else if (doctor.value === "Dr. Jesse Peters") {
+        if (date.getDay() === 1 || date.getDay() === 2)
+            return [false];
     } 
 
     var string = jQuery.datepicker.formatDate(setDateFormat, date);
     return [ unavailableDates.indexOf(string) == -1 ]
 }
 
-function checkSelected () {
-    var serviceElement = document.getElementById('service');
-    if(!serviceElement.value) {  
-        alert("You must select a service.");  
-    }
 
+
+function checkSelected() {
+    var serviceElement = document.getElementById('service');
+    var selectedService = serviceElement.options[serviceElement.selectedIndex].value;
+    if(selectedService.value  =="selectService") {  
+        alert("You must select a service.");
+        return false;
+    }
+    var doctorElement = document.getElementById('doctorSelect');
+    var selectedDoctor = doctorElement.options[doctorElement.selectedIndex].value;
+    if(selectedDoctor.value =="selectDoctor") {  
+        alert("You must select a doctor.");  
+        return false;
+    }
+    return true;
+} 
+function dateTimeEmpty(date, time){
+    let check = true;
+
+    if(!date){
+        alert("Please select a date.");
+        check = false;
+    } if (!time) {
+        alert("Please select a time.");
+        check = false;
+    }
+    return check;
 }
+
 // HERE, JQuery "LISTENING" starts
 $(document).ready(function(){
 
@@ -147,7 +191,7 @@ $(document).ready(function(){
     // https://jqueryui.com/tooltip/
     // The class "highlight" used here is predefined in JQuery UI
     // the message of the tooltip is encoded in the input (in the HTML file)
-    $("#credit").tooltip({
+    $("#credit,#phone,#emailInput").tooltip({
         classes: {
             "ui-tooltip": "highlight"
         }

@@ -115,16 +115,16 @@ Many websites will use what is called CSS grid layouts, where you will have a he
         <div class="form-group">
             <!-- <input type="phone" class="form-control" id="phone" placeholder="Enter Phone Number"> -->
             <!-- <input type="tel" class="form-control" id="phone" name="phone"placeholder="Enter Phone Number" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required> -->
-            <p>Phone Number <input type="text" class="form-control" id="phone" placeholder="(xxx)xxx-xxxx" oninvalid="this.setCustomValidity('Phone number cannot be empty.')" 
+            <p>Phone Number <input type="text" class="form-control" id="phone" title="This is required to provide you with further information." placeholder="(xxx)xxx-xxxx" oninvalid="this.setCustomValidity('Phone number cannot be empty.')" 
                 onchange="this.setCustomValidity('')"required></p>
         </div>
         <div class="form-group">
-            <p>Email<input type="email" class="form-control" id="emailInput" placeholder="sample@email.com" required></p>
+            <p>Email<input type="email" class="form-control" id="emailInput" title="This is required to provide you with further information." placeholder="sample@email.com" required></p>
         </div>
         <div class="form-group">
              <!-- <input type="text" class="form-control" required> -->
             <select class="custom-select" id="service" required>
-                <option disabled selected>Select Service</option>
+                <option selected disabled value="selectService">Select Service</option>
                 <option>Nutritional Counselling</option>
                 <option>Grooming Services</option>
                 <option>Dental Care</option>
@@ -133,8 +133,8 @@ Many websites will use what is called CSS grid layouts, where you will have a he
               </select>
         </div>
         <div class="form-group">
-            <select class="custom-select" id="doctorSelect"  required onchange="setDoctor()"required>
-                <option disabled selected>Select Doctor</option>
+            <select class="custom-select" id="doctorSelect"  required onchange="setDoctor()">
+                <option selected disabled value ="selectDoctor">Select Doctor</option>
                 <option>Dr. John Mazarra</option>
                 <option>Dr. Jenna Keegan</option>
                 <option>Dr. Jesse Peters</option>
@@ -147,12 +147,12 @@ Many websites will use what is called CSS grid layouts, where you will have a he
         <div class="form-row">
             <div class="form-group col-md-10">
             <label for="date" style="color:#404040">Preferred Date of Appointment:</label>
-            <input class="form-control" type="text" id="dateInput" placeholder="mm/dd/yyyy" required>
-            <p><strong>PLEASE NOTE:</strong> We are closed June 29, July 7, and July 10 due to building maintenance.</p>
+            <input class="form-control" type="text" id="dateInput" placeholder="mm/dd/yyyy" disabled required>
+            <p><strong>PLEASE NOTE:</strong> We are closed June 28, July 6, and July 9 due to building maintenance.</p>
             </div>
             <div class="form-group col-md-10">
             <label for="inputAddress2">Time</label>
-            <input type="time" class="form-control" id="inputAddress2" required>
+            <input type="time" class="form-control" id="inputTime" required>
             </div>
         </div>
         <div class="form-group">
@@ -293,7 +293,7 @@ Many websites will use what is called CSS grid layouts, where you will have a he
                 <h5><i class="fa-solid fa-location" style="margin-right: 20px"></i>Location</h5>
                 <p>800 King Edward Ave, Ottawa, ON K1N 6N5</p>
                 <h5>Clinic Hours</h5>
-                <p>Monday-Friday 09:00 - 18:00 <br> Saturday 09:00 - 16:00 <br> Sunday Closed </p>
+                <p>Monday-Friday 09:00 - 18:00 <br> Saturday Closed <br> Sunday Closed </p>
                 <h5>Contact Us</h5>
                 <p>info@companioncareclinic.ca</p>     
                 <p>(613)-783-1113</p>    

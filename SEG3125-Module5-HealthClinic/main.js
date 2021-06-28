@@ -1,4 +1,4 @@
-
+/* 
 function validate() {
 	
     let credit_card_num = $("#credit").val();
@@ -23,12 +23,10 @@ function validate() {
 		alert("Successfully booked");
         let message = `Your appointment has been received for ${app_dt} at ${app_time}.\n
         You have registered for: ${services_selected.toString()} with ${specialist}.\n
-        Thank you for choosing Companion Care Clinic.`
+        Thank you for choosing Companion Care Clinic.` 
         $.alert(message,"Success!");
         }
-	}
-}
-
+	} */
 
 
 

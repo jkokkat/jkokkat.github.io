@@ -22,15 +22,17 @@
         let phone_number = $("#phone").val();
         let date = $("#dateInput").val();
         let time = $("#inputTime").val();
-    
-      
+        let service = $("#service").val();
+        let doctor  = $("#doctorSelect").val();
         let datetimecheck = dateTimeEmpty(date, time);
-        
-        if(validatePhone(phone_number) && validateCredit(credit_card_num) && datetimecheck && checkSelected()){
+        let email = $("#emailInput").val();
+        let fullName = $("#name").val();
+
+        if(phoneNumberFormatCheck(phone_number) && creditCardFormatCheck(credit_card_num) && datetimecheck && checkSelected() && emailFormatCheck(email) && nameFormatCheck(fullName) ){
            // alert("Successfully booked");
-            let message = `Your appointment has been received for ${date} at ${time}.\n
+            let confirmation = `Your appointment has been received for ${date} at ${time} for ${service} with ${doctor}.\n 
             Thank you for choosing Companion Care Clinic.` 
-            $.alert(message,"Success!");
+            alert(confirmation,"Success!");
             }
     }
 // Function to verify that the phone number is correct.
@@ -93,19 +95,57 @@ function disableDates(date) {
     var string = jQuery.datepicker.formatDate(setDateFormat, date);
     return [ unavailableDates.indexOf(string) == -1 ]
 }
+function nameFormatCheck(name){
 
+    let check = true;
+    if(!name){
+        alert("Please enter full name.");
+        check = false;
+    }
+    return check;
+}
 
+function creditCardFormatCheck(credit_number){
+    const credit_regex = new RegExp("^[0-9]{4} [0-9]{4} [0-9]{4} [0-9]{4}$");
+    let valid_num = credit_regex.test(credit_number);
+    if (!valid_num){
+        alert("Please enter the correct credit card format, replacing the 'x' with digits:  xxxx xxxx xxxx xxxx");
+        return false;
+    }
+
+    return true;
+}
+
+function phoneNumberFormatCheck(phone_number){
+    const phone_regex = new RegExp("^[0-9]{3}-[0-9]{3}-[0-9]{4}$");
+    let valid_phoneNumber = phone_regex.test(phone_number);
+    if (!valid_phoneNumber){
+        alert("Please enter the correct phone number format, by replacing the 'X' with digits: XXX-XXX-XXXX");
+        return false;
+    }
+    return true;
+}
+
+function emailFormatCheck(email_address){
+    const email_regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    let valid_email = email_regex.test(email_address);
+    if(!valid_email){
+        alert("Please enter a valid email address.");
+        return false;
+    }
+    return true;
+}
 
 function checkSelected() {
-    var serviceElement = document.getElementById('service');
-    var selectedService = serviceElement.options[serviceElement.selectedIndex].value;
-    if(!selectedService) {  
+    var serviceElement = document.getElementById('service').value;
+    //var selectedService = serviceElement.options[serviceElement.selectedIndex].value;
+    if(!serviceElement) {  
         alert("You must select a service.");
         return false;
     }
-    var doctorElement = document.getElementById('doctorSelect');
-    var selectedDoctor = doctorElement.options[doctorElement.selectedIndex].value;
-    if(!selectedDoctor) {  
+    var doctorElement = document.getElementById('doctorSelect').value;
+    //var selectedDoctor = doctorElement.options[doctorElement.selectedIndex].value;
+    if(!doctorElement) {  
         alert("You must select a doctor.");  
         return false;
     }

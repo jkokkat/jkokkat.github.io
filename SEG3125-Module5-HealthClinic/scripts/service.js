@@ -23,8 +23,7 @@
         let app_dt = $("#dateInput").val();
         let app_time = $("#inputTime").val();
     
-    
-       
+      
         let datetimecheck = dateTimeEmpty(app_dt, app_time);
         
         if(validatePhone(phone_number) && validateCredit(credit_card_num) && datetimecheck && checkSelected()){
@@ -103,13 +102,13 @@ function disableDates(date) {
 function checkSelected() {
     var serviceElement = document.getElementById('service');
     var selectedService = serviceElement.options[serviceElement.selectedIndex].value;
-    if(selectedService.value  =="selectService") {  
+    if(!selectedService) {  
         alert("You must select a service.");
         return false;
     }
     var doctorElement = document.getElementById('doctorSelect');
     var selectedDoctor = doctorElement.options[doctorElement.selectedIndex].value;
-    if(selectedDoctor.value =="selectDoctor") {  
+    if(!selectedDoctor) {  
         alert("You must select a doctor.");  
         return false;
     }

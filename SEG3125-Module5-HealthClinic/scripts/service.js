@@ -20,17 +20,16 @@
     function validate() {
         let credit_card_num = $("#credit").val();
         let phone_number = $("#phone").val();
-        let app_dt = $("#dateInput").val();
-        let app_time = $("#inputTime").val();
+        let date = $("#dateInput").val();
+        let time = $("#inputTime").val();
     
       
-        let datetimecheck = dateTimeEmpty(app_dt, app_time);
+        let datetimecheck = dateTimeEmpty(date, time);
         
         if(validatePhone(phone_number) && validateCredit(credit_card_num) && datetimecheck && checkSelected()){
-            alert("Successfully booked");
-            /* let message = `Your appointment has been received for ${app_dt} at ${app_time}.\n
-            You have registered for: ${services_selected.toString()} with ${specialist}.\n
-            Thank you for choosing Companion Care Clinic.` */
+           // alert("Successfully booked");
+            let message = `Your appointment has been received for ${date} at ${time}.\n
+            Thank you for choosing Companion Care Clinic.` 
             $.alert(message,"Success!");
             }
     }
@@ -66,9 +65,7 @@ function validateCredit(txtCredit) {
         return false;
     }
 }
-$("#submitBtn").click(function(){
-    validate();
-})
+
 
 // Using date restrictions on datepicker
 // Document of datepicker is here: https://api.jqueryui.com/datepicker/
@@ -129,6 +126,11 @@ function dateTimeEmpty(date, time){
 
 // HERE, JQuery "LISTENING" starts
 $(document).ready(function(){
+
+
+    $("#submitBtn").click(function(){
+      validate();
+    }) 
 
     // phone validation, it calls validatePhone
     // and also some feedback as an Alert + putting a value in the input that shows the format required

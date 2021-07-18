@@ -6,7 +6,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {render} from 'react-dom';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-
+import { HashRouter } from 'react-router-dom';
 import { Carousel } from 'react-responsive-carousel';
 //import { Carousel } from 'react-bootstrap';
 export { default as Navigation } from "./Navigation";
@@ -22,7 +22,9 @@ export {default as Contact} from "./Contact";
 // ReactDOM.render(<App />, document.getElementById("root"));
   ReactDOM.render(
     <React.StrictMode>
+      <HashRouter>
       <App />
+      </HashRouter>
   </React.StrictMode>,
     document.getElementById('root')
   ); 

@@ -19,15 +19,15 @@ export {default as Contact} from "./Contact";
 // Importing the Bootstrap CSS
 //import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
-ReactDOM.render(<App />, document.getElementById("root"));
-  /* ReactDOM.render(
+// ReactDOM.render(<App />, document.getElementById("root"));
+  ReactDOM.render(
     <React.StrictMode>
     <HashRouter>
       <App />
     </HashRouter>
   </React.StrictMode>,
     document.getElementById('root')
-  ); */
+  ); 
 /* ReactDOM.render(
   <React.StrictMode>
     <HashRouter>

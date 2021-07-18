@@ -22,9 +22,7 @@ export {default as Contact} from "./Contact";
 // ReactDOM.render(<App />, document.getElementById("root"));
   ReactDOM.render(
     <React.StrictMode>
-    <HashRouter>
       <App />
-    </HashRouter>
   </React.StrictMode>,
     document.getElementById('root')
   ); 

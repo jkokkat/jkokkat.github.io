@@ -1,6 +1,31 @@
 import React from "react";
+import { useState } from "react";
+import ServicesCheck from './servicesCheck';
 import { Map, GoogleApiWrapper } from 'google-maps-react';
+
 function Contact() {
+  const [email, setEmail] = useState("");
+  const emailValidate = (email) =>{
+    const email_regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    let valid_email = email_regex.test(email);
+    console.log("email");
+    if(!valid_email){
+        alert("Please enter a valid email address.");
+        return false;
+    }
+    return true;
+
+}
+const validateAllInputs = () =>{
+  let emailCheck = emailValidate(email);
+  //alert("Thank you for your submission! You will be notified via your email for further information. ")
+  
+  if(emailCheck){
+      alert("Thank you for your submission! You will be notified via your email for further information. ")
+      return true;
+  } 
+  return false;
+} 
   return (
     <div className="contact">
       <div class="container">
@@ -22,7 +47,7 @@ function Contact() {
 
             <div class="bg-img">
   
-    <form action="" class="form-container">
+      <form action="javascript: void(0);" >
         <h4>Book an Appointment</h4>
         <div class="form-group">
           <input type="name" class="form-control" id="name" oninvalid="this.setCustomValidity('Name cannot be empty.')" 
@@ -35,25 +60,24 @@ function Contact() {
                 onchange="this.setCustomValidity('')"required /></p>
         </div>
         <div class="form-group">
-            <p>Email<input type="email" class="form-control" id="emailInput" title="This is required to provide you with further information." placeholder="sample@email.com" required /></p>
+        <label className="form-label" htmlFor="Email">{email}</label>
+        <input type="email" className="form-control" id="Email" placeholder="Enter email" onChange={(event) => setEmail(event.target.value)}></input>
         </div>
         <div class="form-group">
              
             <select class="custom-select" id="service" required>
                 <option selected disabled value="">Select Service</option>
-                <option>Nutritional Counselling</option>
-                <option>Grooming Services</option>
-                <option>Dental Care</option>
-                <option>Exams and Diagnostics</option>
-                <option>Preventative Medicine</option>
+                <option>Hair Care</option>
+                <option>Makeup Artistry</option>
+                <option>Facial Care</option>
               </select>
         </div>
         <div class="form-group">
-            <select class="custom-select" id="doctorSelect"  required onchange="setDoctor()">
-                <option selected disabled value ="">Select Doctor</option>
-                <option>Dr. John Mazarra</option>
-                <option>Dr. Jenna Keegan</option>
-                <option>Dr. Jesse Peters</option>
+            <select class="custom-select" id="specialistSelect"  required onchange="setSpecialist()">
+                <option selected disabled value ="">Select Specialist</option>
+                <option>Jessica Hewitt</option>
+                <option>James Charles</option>
+                <option>Courtney Lopez</option>
               </select>
         </div>
      
@@ -61,7 +85,6 @@ function Contact() {
             <div class="form-group col-md-10">
             <label for="date">Preferred Date of Appointment:</label>
             <input class="form-control" type="text" id="dateInput" placeholder="mm/dd/yyyy" disabled required />
-            <p><strong>PLEASE NOTE:</strong> We are closed June 28, July 6, and July 9 due to building maintenance.</p>
             </div>
             <div class="form-group col-md-10">
             <label for="inputAddress2">Time</label>
@@ -69,29 +92,29 @@ function Contact() {
             </div>
         </div>
         <div class="form-group">
-            <p><i class="fas fa-credit-card"></i> Credit Card Number</p><input type="credit" class="form-control" id="credit" title="This is only required in case of last minute cancellation." placeholder="XXXX XXXX XXXX XXXX" required />
-        </div>
-        <div class="form-group">
-            <button type="submit" id="submitBtn" class="btn">BOOK APPOINTMENT </button>
+        <button className="btn-lg  mt-3 " onClick={validateAllInputs}>Submit</button>            
         </div>
       </form>
 </div>
 
 
-
-
-
-
-
         </div>
         <span class="map-txt">
+          <br>
+          </br>
+          <br>
+          </br>
+          <br>
+          </br>
+          <br>
+          </br>
                 <h1>Come visit us!</h1>
                 <h5><i class="fa-solid fa-location"></i>Location</h5>
                 <p>800 King Edward Ave, Ottawa, ON K1N 6N5</p>
                 <h5>Clinic Hours</h5>
                 <p>Monday-Friday Open 24 Hours Saturday Closed and Sunday Closed </p>
                 <h5>Contact Us</h5>
-                <p>info@companioncareclinic.ca</p>     
+                <p>info@relaxandrevivespa.ca</p>     
                 <p>(613)-783-1113</p>    
             </span>
           </div>

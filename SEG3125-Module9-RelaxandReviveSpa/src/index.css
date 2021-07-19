@@ -107,3 +107,49 @@ h3{
   text-align: left;
   position: relative;
 } 
+.card-text{
+  margin-top: 20px;
+  height:fit-content;
+}
+.card {
+  width: 18rem;
+}
+.teamArea{
+  margin-right: 10px; 
+  margin-right: 20px; 
+}
+.hyperlink{
+  font-size: 1em;
+  align-items: center;
+}
+h1{
+  align-self: center;
+}
+.crop {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+.card-img-top{
+  border-color:#323185;
+  border-width: 5px;
+}
+.card{
+  border-color:#b4cdee;
+  border-width: 5px;
+  margin-top:5%;
+  margin-bottom:5%;
+}
+/* Use a media query to add a break point at 800px: */
+@media screen and (max-width: 800px) {
+  .left, .main, .right {
+    width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
+  }
+}
+.prod{
+  height:10px;
+
+}
+.submitBtn{
+  color:#220b4d;
+}

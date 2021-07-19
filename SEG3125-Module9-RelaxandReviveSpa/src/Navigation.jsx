@@ -12,9 +12,11 @@ import Language from './images/languages.png';
           <a href="/home">Home </a>
           <a href="/about"> About</a>
           <a href="/services"> Services</a>
-          <a href="/products"> Products</a>
+          <a href="/items"> Products</a>
           <a href="/contact">Contact</a>
-          <img src={Language} width="40" height="40"/>
+          {/* <img id ="img" src={Language} width="40" height="40"/> */}
+          <script type='text/javascript' src='//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit' />
+          <div id="google_translate_element"></div>
         </div>
       </nav>  
   ); 

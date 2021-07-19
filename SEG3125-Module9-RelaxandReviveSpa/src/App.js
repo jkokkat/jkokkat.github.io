@@ -6,9 +6,10 @@ import Navigation from './Navigation';
 import Footer from './Footer';
 import About from './About';
 import Home from './Home';
+import Products from './Products';
 import Services from './Services';
 import Contact from './Contact';
-import Products from './Products';
+//import Items from './Items';
 import ReactDOM from 'react-dom';
 import image1 from './images/background.jpeg';
 import image2 from './images/hairslide.jpeg';
@@ -25,7 +26,7 @@ function App() {
           <Route path="/" exact component={() => <Home />} />
           <Route path="/about" exact component={() => <About />} />
           <Route path="/services" exact component={() => <Services />} />
-          <Route path="/products" exact component={() => <Products/>} />
+          <Route path="/items" exact component={() => <Products/>} />
           <Route path="/contact" exact component={() => <Contact/>} />
           <Carousel autoPlay showThumbs={false}>
                   <div>
@@ -49,6 +50,8 @@ function App() {
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
+                <script type='text/javascript' src='//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit' />
+                <div id="google_translate_element"></div>
                 </div>
                 </div>
                 </div>
